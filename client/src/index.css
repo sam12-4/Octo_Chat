@@ -122,3 +122,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+.skheight{
+  height : 20vh !important;
+}
+
+.h-nav{
+  height : 22vh !important;
+
+}

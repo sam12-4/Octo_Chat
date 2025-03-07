@@ -38,7 +38,7 @@ const Header = () => {
 
 
   return (
- <header className='w- my-5 ml-3 mr-3 p-5 shadow-2xl border-2 border-white rounded-2xl flex justify-between items-center '>
+ <header className=' my-5 ml-3 mr-3 p-5 shadow-2xl border-2 border-white rounded-2xl flex justify-between items-center '>
         <div className='md:flex md:visible hidden '>
             ChatApp
         </div>   
