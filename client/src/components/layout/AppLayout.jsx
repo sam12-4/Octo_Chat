@@ -1,9 +1,14 @@
 import React, { lazy } from 'react'
-import { sampleData } from '../constants/sampledata'
+import { sampleData } from '../constants/sampleData'
+import { useParams } from 'react-router'
 
 
 const Header = lazy(
   () => import("./Header")
+)
+
+const ProfileDetails = lazy(
+  () => import("../specific/ProfileDetails")
 )
 
 const ChatList = lazy(
@@ -14,39 +19,47 @@ const Title = lazy(
   () => import("../shared/Title")
 )
 
+
 const AppLayout = () => (WrappedComponents) => {
-    return (props) => {
-        return (
-          <>
-            <div >
-                <Title />
-                <Header />
-                <WrappedComponents {...props} />
-            </div>
-            <div className='flex ml-4'>
-            <div className='first  w-[33%]'>
-              <ChatList chats={sampleData}
-               chatId={"1"} 
+  return (props) => {
+    const params = useParams();
+    const chatId = params.chatId;
+    const handleDeleteChat = (e, _id, groupChat) => {
+      console.log("delete Chat", _id);
+    }
+    return (
+      <>
+        <div >
+          <Title />
+          <Header />
+          <WrappedComponents {...props} />
+        </div>
+        <div className='flex ml-4'>
+          <div className='first w-[40%]  md:w-[33%]'>
+            <ChatList chats={sampleData}
+              chatId={chatId}
               newMessagesAlert={[{
-                chatId : "1",
-                count : 6,
-              } 
+                chatId: "1",
+                count: 6,
+              }
               ]
               }
-              OnlineUsers = {["1", "2"]}
-              />
-            </div>
-            <div className='first w-[33%] p-2'>
-              second
-              {/* {Array.from({length :10}).map((_, index)=>(<Skeleton key={index} className="skheight w-full rounded-xl" />))} */}
-            </div>
-            <div className='first  w-[33%]'>
-              third
-            </div>
-            </div>
-          </>
-        )
-    }
+              OnlineUsers={["1", "3"]}
+              // handleDeleteChat
+            handleDeleteChat ={handleDeleteChat}
+            />
+          </div>
+          <div className='first w-[60%] md:w-[33%] p-2'>
+            second
+            {/* {Array.from({length :10}).map((_, index)=>(<Skeleton key={index} className="skheight w-full rounded-xl" />))} */}
+          </div>
+          <div className='first md:block hidden w-[33%]'>
+            <ProfileDetails />
+          </div>
+        </div>
+      </>
+    )
+  }
 }
 
 export default AppLayout

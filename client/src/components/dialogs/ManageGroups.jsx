@@ -1,38 +1,31 @@
 import { Group } from '@mui/icons-material'
 import React from 'react'
 import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
-  } from "@/components/ui/alert-dialog"
-  import { Button } from "@/components/ui/button"
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "../ui/dialog"
+import { Button } from "@/components/ui/button"
 
 const ManageGroups = () => {
     return (
-        <AlertDialog>
-            <AlertDialogTrigger asChild>
+        <Dialog>
+            <DialogTrigger>
                 <Button variant="outline" className="cursor-pointer hover:bg-gray-500 rounded-2xl duration-150"><Group /></Button>
-            </AlertDialogTrigger>
-            <AlertDialogContent>
-                <AlertDialogHeader>
-                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                    <AlertDialogDescription>
-                        This action cannot be undone. This will permanently delete your
-                        account and remove your data from our servers.
-                    </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction>Continue</AlertDialogAction>
-                </AlertDialogFooter>
-            </AlertDialogContent>
-        </AlertDialog>
+            </DialogTrigger>
+            <DialogContent>
+                <DialogHeader>
+                    <DialogTitle>Are you absolutely sure?</DialogTitle>
+                    <DialogDescription>
+                        This action cannot be undone. This will permanently delete your account
+                        and remove your data from our servers.
+                    </DialogDescription>
+                </DialogHeader>
+            </DialogContent>
+        </Dialog>
     )
 }
 

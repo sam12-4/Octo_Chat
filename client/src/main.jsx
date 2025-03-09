@@ -4,6 +4,8 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <div onContextMenu={(e)=>e.preventDefault()}>
     <App />
+    </div>
   </StrictMode>,
 )

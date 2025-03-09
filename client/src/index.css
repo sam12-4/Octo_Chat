@@ -131,3 +131,30 @@
   height : 22vh !important;
 
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 40px;
+  background: #f1f1f1;
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 40px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

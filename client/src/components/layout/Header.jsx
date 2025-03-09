@@ -13,6 +13,7 @@ const Header = () => {
     const [isMobile, setIsMobile] = useState(false)
     const [notification, setNotification] = useState(false)
     const [hamburger, setHamburger] = useState(true)
+    const [handlerIsLoading, sethandlerIsLoading] = useState(false)
 
     const handleSearch =() =>{
         console.log('');
@@ -36,6 +37,27 @@ const Header = () => {
         console.log('search');
     }
 
+    const handler = ()=>{
+        console.log('handler loading');
+    }
+
+    const users = [
+        {
+        avatar: "",
+        name: "sameer2",
+        _id: 3,
+        groupChat: false,
+        members: ["1", "2"]
+    },
+        {
+        avatar: "https://github.com/shadcn.png",
+        name: "sameer3",
+        _id: 3,
+        groupChat: false,
+        members: ["1", "2"]
+    }
+]
+
 
   return (
  <header className=' my-5 ml-3 mr-3 p-5 shadow-2xl border-2 border-white rounded-2xl flex justify-between items-center '>
@@ -51,13 +73,13 @@ const Header = () => {
              */}
              <CrossIcon className='rotate-45 md:hidden absolute top-2 right-2' onClick={colllapseNavbar}/>
              <SearchDialog />
-            <AddGroups />
+            <AddGroups users={users} handler={handler} handlerIsLoading={handlerIsLoading}/>
             <ManageGroups />
             {/* <Notifications className='cursor-pointer hover:bg-gray-500 rounded-2xl duration-150' onClick={handleNotification}/>
             
             */}
             <NotificationDialog />
-            <Logout className='cursor-pointer hover:bg-gray-500 rounded-2xl duration-150' onClick={handleLogout}/>
+            <Logout className='cursor-pointer  rounded-2xl duration-150' onClick={handleLogout}/>
         </div>
     </header>
   )

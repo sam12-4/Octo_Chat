@@ -1,10 +1,11 @@
 import React from 'react'
 import ChatItem from '../shared/ChatItem';
+import { sampleData } from '../constants/sampleData';
 
 const ChatList = ({
   w = "100%",
   chatId,
-  chats = [1, 3, 4],
+  chats = [],
   OnlineUsers = [],
   newMessagesAlert = [{
     chatId: "",
@@ -24,8 +25,11 @@ const ChatList = ({
         } = data;
 
         //  const newMessage = newMessageAlert.find((chatId)=>{chatId ==_id})
-        const isOnline = members?.some((member) =>{ 
-          return OnlineUsers.includes(member) })
+        // const isOnline = members?.some((member) =>{ 
+        //   return OnlineUsers.find((id)=> id == _id)}
+        // )
+        const isOnline = OnlineUsers.find((id)=> id == _id)
+        
       
         const newMessageAlert = newMessagesAlert.find(({ chatId }) => chatId == _id)
 
@@ -40,7 +44,7 @@ const ChatList = ({
           newMessageAlert = {newMessageAlert}
           newMessage={newMessageAlert}
           index = {index}
-          handleDeleteChatOpen = {handleDeleteChat}
+          handleDeleteChat = {handleDeleteChat}    
         
           />
 
