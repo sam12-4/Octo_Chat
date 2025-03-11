@@ -7,13 +7,16 @@ import SearchDialog from '../dialogs/SearchDialog'
 import NotificationDialog from '../dialogs/NotificationDialog'
 import AddGroups from '../dialogs/AddGroups'
 import ManageGroups from '../dialogs/ManageGroups'
+import { sampleUsers } from '../constants/sampleData'
+import AddFriends from '../dialogs/AddFriends'
 
 
 const Header = () => {
     const [isMobile, setIsMobile] = useState(false)
     const [notification, setNotification] = useState(false)
     const [hamburger, setHamburger] = useState(true)
-    const [handlerIsLoading, sethandlerIsLoading] = useState(false)
+    
+    const [users, setUsers] = useState(sampleUsers)
 
     const handleSearch =() =>{
         console.log('');
@@ -37,26 +40,7 @@ const Header = () => {
         console.log('search');
     }
 
-    const handler = ()=>{
-        console.log('handler loading');
-    }
-
-    const users = [
-        {
-        avatar: "",
-        name: "sameer2",
-        _id: 3,
-        groupChat: false,
-        members: ["1", "2"]
-    },
-        {
-        avatar: "https://github.com/shadcn.png",
-        name: "sameer3",
-        _id: 3,
-        groupChat: false,
-        members: ["1", "2"]
-    }
-]
+    
 
 
   return (
@@ -73,8 +57,8 @@ const Header = () => {
              */}
              <CrossIcon className='rotate-45 md:hidden absolute top-2 right-2' onClick={colllapseNavbar}/>
              <SearchDialog />
-            <AddGroups users={users} handler={handler} handlerIsLoading={handlerIsLoading}/>
-            <ManageGroups />
+            <AddFriends users={users}/>
+            <AddGroups users={users} />
             {/* <Notifications className='cursor-pointer hover:bg-gray-500 rounded-2xl duration-150' onClick={handleNotification}/>
             
             */}

@@ -7,5 +7,5 @@ createRoot(document.getElementById('root')).render(
     <div onContextMenu={(e)=>e.preventDefault()}>
     <App />
     </div>
-  </StrictMode>,
+  </StrictMode> 
 )
