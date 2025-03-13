@@ -32,7 +32,7 @@ const AppLayout = () => (WrappedComponents) => {
         <div >
           <Title />
           <Header />
-          <WrappedComponents {...props} />
+          
         </div>
         <div className='flex ml-4'>
           <div className='first w-[40%]  md:w-[33%]'>
@@ -50,7 +50,7 @@ const AppLayout = () => (WrappedComponents) => {
             />
           </div>
           <div className='first w-[60%] md:w-[33%] p-2'>
-            second
+          <WrappedComponents {...props} />
             {/* {Array.from({length :10}).map((_, index)=>(<Skeleton key={index} className="skheight w-full rounded-xl" />))} */}
           </div>
           <div className='first md:block hidden w-[33%]'>

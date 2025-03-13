@@ -8,7 +8,7 @@ const initialState = {
 const ThemeProviderContext = createContext(initialState);
 
 export function ThemeProvider({
-  children,
+  children,   
   defaultTheme = "system",
   storageKey = "vite-ui-theme",
   ...props
